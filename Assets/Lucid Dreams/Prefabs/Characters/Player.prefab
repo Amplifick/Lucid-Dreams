@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 6253093409188131454}
   - component: {fileID: 1377449504}
   - component: {fileID: 1377449503}
+  - component: {fileID: 7034711828194736432}
   - component: {fileID: 1377449502}
+  - component: {fileID: 473540065710131359}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -113,6 +115,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6077298, y: 0.8482458}
   m_EdgeRadius: 0
+--- !u!114 &7034711828194736432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6253093409188131449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2610aab76907eb64c8d01bc9611eac10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveInput: {x: 0, y: 0}
+  attackInput: 0
 --- !u!114 &1377449502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,6 +142,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  collisionOffset: 0.05
+  movementFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+--- !u!114 &473540065710131359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6253093409188131449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e002a49a7a2c0149b5f0acaa7075fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
+  isAttacking: 0
 --- !u!1001 &6253093408798665446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -225,6 +270,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2700247151145141486, guid: 7528975c61fcb3b46aeae4ce111e41a9, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 12c260e0bcc145244be61ca9299cdec5, type: 2}
     - target: {fileID: 8003714967293172424, guid: 7528975c61fcb3b46aeae4ce111e41a9, type: 3}
       propertyPath: m_Name
       value: Unit004
