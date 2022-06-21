@@ -5,37 +5,40 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("References")]
+    InputManager inputManager;
+
     public float moveSpeed;
     public float collisionOffset;
     public ContactFilter2D movementFilter;
 
-    private Vector2 moveInput;
     private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     private Rigidbody2D rb;
     private Animator anim;
 
+
     private void Start()
     {
+        inputManager = GetComponent<InputManager>();
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponentInChildren<Animator>();
+        anim = GetComponentInChildren<Animator>();    
     }
 
-    
     void FixedUpdate()
     {
-        if(moveInput != Vector2.zero)
+        if(inputManager.moveInput != Vector2.zero)
         {
             //Try to move player in input direction, followed by left right and up down input if failed
-            bool success = CanMovePlayer(moveInput);
+            bool success = CanMovePlayer(inputManager.moveInput);
 
             if (!success)
             {
                 //Try left / right
-                success = CanMovePlayer(new Vector2(moveInput.x, 0));
+                success = CanMovePlayer(new Vector2(inputManager.moveInput.x, 0));
 
                 if (!success)
                 {
-                    success = CanMovePlayer(new Vector2(0, moveInput.y));
+                    success = CanMovePlayer(new Vector2(0, inputManager.moveInput.y));
                 }
             }
 
@@ -45,8 +48,6 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("isMoving", false);
         }
-
-
     }
 
     public bool CanMovePlayer(Vector2 direction)
@@ -71,19 +72,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    #region Input Events
-    void OnMove(InputValue value)
-    {
-        moveInput = value.Get<Vector2>();
-
-        // Only set the animation direction if the player is trying to move
-        if(moveInput != Vector2.zero)
-        {
-            anim.SetFloat("XInput", moveInput.x);
-            anim.SetFloat("YInput", moveInput.y);
-        }
-
-    }
-
-    #endregion
 }
