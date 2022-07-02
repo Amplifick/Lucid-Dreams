@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [Header("References")]
+    PlayerHandler playerHandler;
+    PlayerAnimatorManager playerAnimatorManager;
     InputManager inputManager;
 
     public float moveSpeed;
@@ -14,19 +16,22 @@ public class PlayerController : MonoBehaviour
 
     private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     private Rigidbody2D rb;
-    private Animator anim;
-
-
+    
     private void Start()
     {
+        playerHandler = GetComponent<PlayerHandler>();
         inputManager = GetComponent<InputManager>();
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponentInChildren<Animator>();    
+        playerAnimatorManager = GetComponent<PlayerAnimatorManager>();    
     }
 
     void FixedUpdate()
     {
-        if(inputManager.moveInput != Vector2.zero)
+
+        if (playerHandler.isInteracting)
+            return;
+
+        if (inputManager.moveInput != Vector2.zero)
         {
             //Try to move player in input direction, followed by left right and up down input if failed
             bool success = CanMovePlayer(inputManager.moveInput);
@@ -42,11 +47,11 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            anim.SetBool("isMoving", success);
+            playerAnimatorManager.anim.SetBool("isMoving", success);
         }
         else
         {
-            anim.SetBool("isMoving", false);
+            playerAnimatorManager.anim.SetBool("isMoving", false);
         }
     }
 
