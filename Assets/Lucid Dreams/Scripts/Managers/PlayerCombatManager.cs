@@ -5,44 +5,38 @@ using UnityEngine.InputSystem;
 
 public class PlayerCombatManager : MonoBehaviour
 {
-    [HideInInspector]
-    Animator anim;
-    InputManager inputManager;
-    //InventoryManager inventoryManager;
+    [Header("References")]
+    PlayerHandler playerHandler;
+    PlayerAnimatorManager playerAnimatorManager;
 
-    public WeaponItem weapon; // Just for now, must be removed, and make the attack function work with the current weapon of the player
+    InventoryManager inventoryManager;
+
     public bool isAttacking = false;
 
     private void Start()
     {
-        inputManager = GetComponent<InputManager>();
-        anim = GetComponentInChildren<Animator>();
-    }
-
-    private void LateUpdate()
-    {
-        
+        playerHandler = GetComponent<PlayerHandler>();
+        playerAnimatorManager = GetComponent<PlayerAnimatorManager>();
+        inventoryManager = GetComponent<InventoryManager>();
     }
 
     public void Attack()
     {
-        //Must do a check for isInteracting , that way we dont interrupt animations
-        if (inputManager.attackInput) { isAttacking = true; } else { isAttacking = false; }
-        if (isAttacking)
+
+        if (playerHandler.isInteracting)
+            return;
+
+        //Checking to which side is the player facing at the moment he attacks so we can decide which animation we should play
+        if (playerAnimatorManager.anim.GetFloat("XInput") == 1 || playerAnimatorManager.anim.GetFloat("YInput") == 1 || (playerAnimatorManager.anim.GetFloat("XInput") == 0 && playerAnimatorManager.anim.GetFloat("YInput") == 0))
         {
-            if (anim.GetFloat("XInput") == 1 || anim.GetFloat("YInput") == 1 || (anim.GetFloat("XInput") == 0 && anim.GetFloat("YInput") == 0)) 
-            {
-                anim.Play(weapon.basicAttack_R);
-                //lastAttack = weapon.attackAnimation;
-            }
-            else if (anim.GetFloat("XInput") == -1 || anim.GetFloat("YInput") == -1)
-            {
-                anim.Play(weapon.basicAttack_L);
-                //lastAttack = weapon.attackAnimation;
-            }
-
-
+            playerAnimatorManager.PlayTargetAnimation(inventoryManager.rightWeapon.basicAttack_R, true);
+            //lastAttack = weapon.attackAnimation;
         }
-        
+        else if (playerAnimatorManager.anim.GetFloat("XInput") == -1 || playerAnimatorManager.anim.GetFloat("YInput") == -1)
+        {
+            playerAnimatorManager.PlayTargetAnimation(inventoryManager.rightWeapon.basicAttack_L, true);
+            //lastAttack = weapon.attackAnimation;
+        }
+
     }
 }

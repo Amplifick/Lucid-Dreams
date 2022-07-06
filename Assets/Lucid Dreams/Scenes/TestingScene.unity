@@ -123,6 +123,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &580622946 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6253093409188131449, guid: 12946ee65d96ad0459bfefc4ec259fe7, type: 3}
+  m_PrefabInstance: {fileID: 6253093408414663778}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &580622947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580622946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5d82e93d4a598c40b21f34e5b967832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightWeapon: {fileID: 11400000, guid: 0b39924531635dc428a51904427a3f1b, type: 2}
+  leftWeapon: {fileID: 0}
+--- !u!114 &580622955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580622946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925400e06f638874887003e56c76b1c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+--- !u!114 &580622956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580622946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4658b889ae4ddf043a538eed5fab43ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInteracting: 0
 --- !u!1 &1328661380
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,6 +286,23 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1 &1933096988 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7375078319435392604, guid: 12946ee65d96ad0459bfefc4ec259fe7, type: 3}
+  m_PrefabInstance: {fileID: 6253093408414663778}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1933096989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933096988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7906a7c83c0224f488336baf654c6842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6253093408414663778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -326,3 +388,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12946ee65d96ad0459bfefc4ec259fe7, type: 3}
+--- !u!212 &6253093408414663779 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8546898024290380992, guid: 12946ee65d96ad0459bfefc4ec259fe7, type: 3}
+  m_PrefabInstance: {fileID: 6253093408414663778}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6253093408414663780 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4392012607449503639, guid: 12946ee65d96ad0459bfefc4ec259fe7, type: 3}
+  m_PrefabInstance: {fileID: 6253093408414663778}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &6253093408414663781 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9066813441620929212, guid: 12946ee65d96ad0459bfefc4ec259fe7, type: 3}
+  m_PrefabInstance: {fileID: 6253093408414663778}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6253093408414663782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7183016713563781505, guid: 12946ee65d96ad0459bfefc4ec259fe7, type: 3}
+  m_PrefabInstance: {fileID: 6253093408414663778}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6253093408414663783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6253093408414663780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29fa67b4928e63d418c16308e17c99c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 6253093408414663779}
+  isLeftHandSlot: 0
+  isRightHandSlot: 1
+  currentWeaponSprite: {fileID: 0}
+--- !u!114 &6253093408414663784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6253093408414663782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29fa67b4928e63d418c16308e17c99c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 6253093408414663781}
+  isLeftHandSlot: 1
+  isRightHandSlot: 0
+  currentWeaponSprite: {fileID: 0}
